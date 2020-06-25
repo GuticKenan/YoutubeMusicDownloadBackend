@@ -9,6 +9,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.get('/', (req, res) => { console.log('Test route!')});
 app.post('/', async (req, res) => {
   const { videoId, title } = req.body;
 
