@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+const path = require('path');
 var cors = require('cors');
 var bodyParser = require('body-parser');
 const { YTDownload } = require('./youtubemp3');
@@ -9,7 +9,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => { console.log('Test route!')});
+app.get('/', (req, res) => { res.sendFile(__dirname + '/index.html'); });
+
 app.post('/', async (req, res) => {
   const { videoId, title } = req.body;
 
