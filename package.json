@@ -1,0 +1,22 @@
+{
+  "name": "youtubemusicdownloadbackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kenan",
+  "license": "ISC",
+  "dependencies": {
+    "@fireflysemantics/join": "^1.0.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "ffmpeg-static": "^4.0.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "fs-extra": "^9.0.1",
+    "sanitize-filename": "^1.6.3",
+    "youtube-mp3-downloader": "^0.6.8",
+    "ytdl-core": "^2.1.7"
+  }
+}
