@@ -12,6 +12,7 @@ var YD = new YoutubeMp3Downloader({
 });
 
 function YTDownload(videoId, title) {
+	console.log(_path);
   YD.download(
     videoId,
     title.replace('|', '').replace('/', '') + Math.random().toString()
