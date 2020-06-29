@@ -12,7 +12,7 @@ var YD = new YoutubeMp3Downloader({
 });
 
 function YTDownload(videoId, title) {
-	
+	console.log(downloadsFolder());
   YD.download(
     videoId,
     title.replace('|', '').replace(/[^a-zA-Z0-9]/g,'') + Math.random().toString()
