@@ -9,27 +9,33 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => { res.sendFile(__dirname + '/index.html'); });
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
 
 app.post('/', async (req, res) => {
-  const { videoId, title } = req.body;
+  const { path, videoId, title } = req.body;
 
-  if (!videoId || !title) {
+  if (!videoId || !title || !path) {
     return res.status(400);
   }
 
-  await startDownload(videoId, title);
-  res.send('Success!');
+  startDownload(videoId, title, path, () => {
+    res.json({
+      status:200,
+      message: 'Success'
+    });
+  });
 });
 
 app.listen(process.env.PORT || 8000, () => {
   console.log('Server is running!');
 });
 
-async function startDownload(videoId, title) {
+startDownload = function (videoId, title, path, callback) {
   try {
-    YTDownload(videoId, title);
+    YTDownload(videoId, title, path, callback);
   } catch (e) {
     console.error(e);
   }
-}
+};
